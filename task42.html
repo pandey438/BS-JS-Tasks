@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Javascript Task 2</h1>
+      <p>Enter the string to be sorted:</p>
+      <input type="text" id="inputstr" placeholder="Enter a string" />
+      <button onclick="sort()">Reverse</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      function sort() {
+        let num = document.getElementById("inputstr").value;
+        let chararray = num.split("");
+        let size = chararray.length;
+        for (let i = 0; i < size; i++) {
+          for (let j = i + 1; j < size; j++) {
+            if (chararray[i] > chararray[j]) {
+              let temp;
+              temp = chararray[i];
+              chararray[i] = chararray[j];
+              chararray[j] = temp;
+            }
+          }
+        }
+        let rev = chararray.join("");
+
+        document.getElementById("result").innerText = `Sorted String: ${rev}`;
+      }
+    </script>
+  </body>
+</html>
